@@ -34,4 +34,15 @@ function playRound(getComputerChoice, getPlayerChoice)
 }
 
 
-console.log(playRound(getComputerChoice(), getPlayerChoice()))
+function finalGame()
+{
+    let numberOfRound = prompt("How many round would you like to play?")
+
+    for(let i = 0; i < numberOfRound; i++)
+    {
+        console.log(playRound(getComputerChoice(), getPlayerChoice()));
+    }
+    
+}
+
+console.log(finalGame())
