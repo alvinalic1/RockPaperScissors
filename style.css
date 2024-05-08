@@ -1,0 +1,10 @@
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.player{
+    display: flex;
+    justify-content: space-around;
+}
+
