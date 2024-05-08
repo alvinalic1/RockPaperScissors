@@ -59,4 +59,37 @@ function finalGame()
     
 }
 
-console.log(finalGame())
+const questionMark = document.querySelector("img");
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+const buttons = document.querySelector(".buttons");
+
+const you = document.querySelector(".you");
+const img = document.querySelector("img");
+
+
+function showRock(){
+    img.src="images/rock.jpg";
+    you.insertBefore(img, buttons);
+}
+
+function showPaper(){
+    img.src="images/paper.jpg";
+    you.insertBefore(img, buttons);
+}
+
+function showScissors(){
+    img.src="images/scissors.jpg";
+    you.insertBefore(img, buttons);
+}
+
+function showChoice(){
+    
+}
+rock.addEventListener("click", showRock)
+paper.addEventListener("click", showPaper);
+scissors.addEventListener("click", showScissors);
+
+// console.log(finalGame())
