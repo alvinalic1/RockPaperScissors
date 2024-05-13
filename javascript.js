@@ -2,6 +2,7 @@ console.log("Hello");
 
 //array holding possible choices
 const RPS = ["Rock", "Paper", "Scissors"];
+let playerChoice = "";
 
 /*
 Method that will get a random number and use that number to access one of the choices in the RPS Array
@@ -66,6 +67,7 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const buttons = document.querySelector(".buttons");
 
+
 const you = document.querySelector(".you");
 const img = document.querySelector("img");
 
@@ -85,11 +87,25 @@ function showScissors(){
     you.insertBefore(img, buttons);
 }
 
-function showChoice(){
-    
-}
-rock.addEventListener("click", showRock)
-paper.addEventListener("click", showPaper);
-scissors.addEventListener("click", showScissors);
 
-// console.log(finalGame())
+rock.addEventListener("click", () =>{
+    playerChoice = "rock";
+    showRock();
+    console.log(playerChoice);
+})
+
+
+paper.addEventListener("click", () =>{
+    playerChoice = "paper";
+    showPaper();
+    console.log(playerChoice);
+});
+
+scissors.addEventListener("click", () =>{
+    playerChoice = "scissors";
+    showScissors();
+    console.log(playerChoice);
+});
+
+//console.log(finalGame())
+
