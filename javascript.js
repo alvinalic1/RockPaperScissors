@@ -3,13 +3,27 @@ console.log("Hello");
 //array holding possible choices
 const RPS = ["Rock", "Paper", "Scissors"];
 let playerChoice = "";
+let computerScore = 0;
+let playerScore = 0;
 
 /*
 Method that will get a random number and use that number to access one of the choices in the RPS Array
 */
+
+const computer = document.querySelector(".computer");
+const compImg = document.querySelector("#comp");
 function getComputerChoice()
 {
     let number = Math.floor(Math.random()*RPS.length)
+    if(RPS[number] == "Rock"){
+        compImg.src="images/rock.jpg";
+    }
+    if(RPS[number] == "Paper"){
+        compImg.src="images/paper.jpg";
+    }
+    if(RPS[number] == "Scissors"){
+        compImg.src="images/Scissors.jpg";
+    }
     return RPS[number];
 }
 
@@ -36,12 +50,16 @@ function playRound(getComputerChoice, getPlayerChoice)
         return "TIE GAME";
     }
 
-    if((player === "paper" && computer === "rock") || (player === "rock" && computer === "scissors") || (player === "scissors" && computer === "paper"))
-    {
-        return `Congratulation you win! ${player} beats ${computer}`;
-    }
-    else{
-        return `You lose! ${computer} beats ${player}`;
+    if((computer == "scissors" && player == "rock") || 
+    (computer == "rock" && player == "paper") || 
+    ( computer == "paper" && player == "scissors")){
+        computerScore++;
+        alert(computerScore);
+        return `You LOSE :( ${player} beats ${computer}`;
+    }else{
+        playerScore++;
+        alert(playerScore)
+        return `You WIN! ${computer} beats ${player} `;
     }
 }
 
@@ -91,20 +109,20 @@ function showScissors(){
 rock.addEventListener("click", () =>{
     playerChoice = "rock";
     showRock();
-    console.log(playerChoice);
+    console.log(playRound(playerChoice, getComputerChoice()));
 })
 
 
 paper.addEventListener("click", () =>{
-    playerChoice = "paper";
     showPaper();
-    console.log(playerChoice);
+    playerChoice = "paper";
+    console.log(playRound(playerChoice, getComputerChoice()));
 });
 
 scissors.addEventListener("click", () =>{
     playerChoice = "scissors";
     showScissors();
-    console.log(playerChoice);
+    console.log(playRound(playerChoice, getComputerChoice()));
 });
 
 //console.log(finalGame())
