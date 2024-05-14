@@ -45,6 +45,12 @@ function playRound(getComputerChoice, getPlayerChoice)
     let player = getPlayerChoice.toLowerCase();
     let computer = getComputerChoice.toLowerCase();
 
+    if(computerScore == 5){
+        alert("GAME OVER COMPUTER WINS");
+    }else if(playerScore == 5){
+        alert("GAME OVER YOU WIN");
+    }
+
     if(player === computer)
     {
         return "TIE GAME";
@@ -54,13 +60,19 @@ function playRound(getComputerChoice, getPlayerChoice)
     (computer == "rock" && player == "paper") || 
     ( computer == "paper" && player == "scissors")){
         computerScore++;
-        alert(computerScore);
+        // const node = document.createTextNode(`${computerScore} times`)
+        // compScore.appendChild(node);
+        compScore = document.getElementById("comp-score");
+        compScore.innerHTML = ("Computer: " + computerScore);
         return `You LOSE :( ${player} beats ${computer}`;
     }else{
         playerScore++;
-        alert(playerScore)
+        urScore = document.getElementById("your-score");
+        urScore.innerHTML = ("You: "+playerScore)
         return `You WIN! ${computer} beats ${player} `;
     }
+
+    
 }
 
 /*
@@ -89,6 +101,9 @@ const buttons = document.querySelector(".buttons");
 const you = document.querySelector(".you");
 const img = document.querySelector("img");
 
+var urScore = document.querySelector("#your-score");
+var compScore = document.querySelector("#comp-score");
+
 
 function showRock(){
     img.src="images/rock.jpg";
@@ -105,6 +120,9 @@ function showScissors(){
     you.insertBefore(img, buttons);
 }
 
+function showComputerScore(computerScore){
+
+}
 
 rock.addEventListener("click", () =>{
     playerChoice = "rock";
