@@ -27,14 +27,7 @@ function getComputerChoice()
     return RPS[number];
 }
 
-/*
-A prompt will pop up to get user input
-*/
-function getPlayerChoice()
-{
-    let choice = prompt(RPS);
-    return choice;
-}
+
 
 /*
 Compares the computer choice with the player choice
@@ -75,20 +68,7 @@ function playRound(getComputerChoice, getPlayerChoice)
     
 }
 
-/*
-Final game
-Asks user how many rounds they wish to play and goes through that many times
-*/
-function finalGame()
-{
-    let numberOfRound = prompt("How many round would you like to play?")
 
-    for(let i = 0; i < numberOfRound; i++)
-    {
-        console.log(playRound(getComputerChoice(), getPlayerChoice()));
-    }
-    
-}
 
 const questionMark = document.querySelector("img");
 
