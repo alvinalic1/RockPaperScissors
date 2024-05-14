@@ -84,7 +84,10 @@ const img = document.querySelector("img");
 var urScore = document.querySelector("#your-score");
 var compScore = document.querySelector("#comp-score");
 
-
+/*
+The next three methods are all meant to update the image so it coencides
+with the player choice
+*/
 function showRock(){
     img.src="images/rock.jpg";
     you.insertBefore(img, buttons);
@@ -100,10 +103,12 @@ function showScissors(){
     you.insertBefore(img, buttons);
 }
 
-function showComputerScore(computerScore){
 
-}
-
+/*
+The next 3 methods are all intended to be even listeners
+Once the player picks their choice
+The image updates and the score is displayed
+*/
 rock.addEventListener("click", () =>{
     playerChoice = "rock";
     showRock();
